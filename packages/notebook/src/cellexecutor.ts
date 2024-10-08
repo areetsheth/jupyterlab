@@ -14,6 +14,7 @@ import { findIndex } from '@lumino/algorithm';
 import { KernelError } from './actions';
 import type { INotebookModel } from './model';
 import type { INotebookCellExecutor } from './tokens';
+import { CommandRegistry } from '@lumino/commands';
 
 /**
  * Run a single notebook cell.
@@ -90,6 +91,9 @@ export async function runCell({
             }
           );
           deletedCells.splice(0, deletedCells.length);
+          console.log('HELLO WORLD');
+          const commandRegistry = new CommandRegistry();
+          commandRegistry.execute('docmanager:save');
 
           ran = (() => {
             if (cell.isDisposed) {
