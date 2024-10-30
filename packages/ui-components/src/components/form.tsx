@@ -501,10 +501,16 @@ const CustomTemplateFactory = (options: FormComponent.ILabCustomizerProps) =>
       );
 
       return (
+        // <div
+        //   className={`form-group ${
+        //     displayLabel || schema.type === 'boolean' ? 'small-field' : ''
+        //   }`}
+        // >
         <div
           className={`form-group ${
             displayLabel || schema.type === 'boolean' ? 'small-field' : ''
           }`}
+          style={{ display: label === 'Auto-save Documents' ? 'none' : '' }}
         >
           {!hasCustomField &&
             (rawErrors?.length ? (
